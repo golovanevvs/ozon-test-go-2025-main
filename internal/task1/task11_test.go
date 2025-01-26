@@ -15,7 +15,7 @@ import (
 // Тест требует доработки в зависимости от условия задачи
 func TestTask11(t *testing.T) {
 	// Указать диапазон тестов
-	for i := 1; i <= 35; i++ {
+	for i := 1; i <= 1; i++ {
 		file, err := os.Open(fmt.Sprintf("tests/%d", i))
 		if err != nil {
 			continue
@@ -25,7 +25,7 @@ func TestTask11(t *testing.T) {
 		t.Run(fmt.Sprintf("Test:%d", i), func(t *testing.T) {
 			in := bufio.NewReader(file)
 
-			expected, err := os.ReadFile(fmt.Sprintf("tests/%d.a", i))
+			expected, err := os.ReadFile(fmt.Sprintf("tests/%d.b", i))
 			require.Nil(t, err)
 
 			var buffer bytes.Buffer

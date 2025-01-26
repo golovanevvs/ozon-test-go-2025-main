@@ -1,10 +1,10 @@
 package main
 
-import "ozon-test-go-2025-main/internal/task1"
+import "ozon-test-go-2025-main/internal/task2"
 
 func main() {
-	task1.Task11()
-	// task2.Task21()
+	//task1.Task11()
+	task2.Task21()
 	// task3.Task31()
 	// task4.Task41()
 	// task5.Task51()

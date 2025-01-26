@@ -4,8 +4,13 @@ import (
 	"bufio"
 	"fmt"
 	"os"
-	"strings"
 )
+
+type light struct {
+	dir string
+	n   int
+	m   int
+}
 
 // Task## - решение задачи # (вариант #). Запускать через main.go в папке cmd
 func Task11() {
@@ -40,25 +45,39 @@ func Run11(in *bufio.Reader, out *bufio.Writer) {
 		// Примеры чтения параметров подзадачи i
 
 		// Чтение из одной строки нескольких значений, разделённых пробелом
-		var a, b int
-		fmt.Fscanln(in, &a, &b)
+		var n, m int
+		fmt.Fscanln(in, &n, &m)
 
 		// Чтение целой строки
-		str1, _ := in.ReadString('\n')
+		// str1, _ := in.ReadString('\n')
 		// Удаление символа \n (на некоторых машинах надо удалить два символа \r\n)
-		str := strings.Trim(str1, "\n")
+		// str := strings.Trim(str1, "\n")
 		// str := strings.Trim(str1, "\r\n")
 		// Для избежания ошибки выведем str (закомментить при использовании шаблона)
-		fmt.Println(str)
+		// fmt.Println(str)
 
 		// Запуск и вывод в out решения подзадачи t
 		// В зависимости от условия задачи алгоритм вывода может потребовать доработки
-		fmt.Fprintln(out, tTaskSolving11())
+		result := tTaskSolving11(n, m)
+		fmt.Fprintln(out, len(result))
+		for _, j := range result {
+			fmt.Fprintln(out, j.m, j.n, j.dir)
+		}
 	}
 }
 
 // tTaskSolving## - функция для решения подзадачи t задачи # (вариант #)
 // В зависимости от условия задачи, необходимо указать требуемые аргументы и возвращаемое значение функции
-func tTaskSolving11() string {
-	return "результат работы функции решения подзадачи i"
+func tTaskSolving11(n, m int) []light {
+	result := make([]light, 0)
+	switch {
+	case n == 1 && m != 1:
+		result = append(result, light{"R", 1, 1})
+	case m == 1:
+		result = append(result, light{"D", 1, 1})
+	default:
+		result = append(result, light{"R", 1, 1})
+		result = append(result, light{"D", 2, 1})
+	}
+	return result
 }

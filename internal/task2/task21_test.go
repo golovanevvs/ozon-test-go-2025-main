@@ -15,7 +15,7 @@ import (
 // Тест требует доработки в зависимости от условия задачи
 func TestTask21(t *testing.T) {
 	// Указать диапазон тестов
-	for i := 1; i <= 35; i++ {
+	for i := 8; i <= 41; i++ {
 		file, err := os.Open(fmt.Sprintf("tests/%d", i))
 		if err != nil {
 			continue
